@@ -1,0 +1,250 @@
+{
+	"settings": {
+		"index": {
+			"mapping.total_fields.limit": 5000,
+			"number_of_shards": 3,
+			"number_of_replicas": 1,
+			"analysis": {
+				"filter": {
+					"autocomplete_filter": {
+						"type": "edge_ngram",
+						"min_gram": 1,
+						"max_gram": 20
+					},
+					"synonym_filter": {
+						"type": "synonym",
+						"ignore_case": "true",
+						"synonyms_path": "synonyms.txt"
+					
+					},
+					"shingle": {
+						"type": "shingle",
+						"min_shingle_size": 2,
+						"max_shingle_size": 3
+					}
+				},
+				"analyzer": {
+					"autocomplete": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"filter": [
+							"lowercase",
+							"synonym_filter",
+							"autocomplete_filter",
+							"shingle"
+
+						]
+					},
+					"custom_analyzer": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"filter": ["lowercase", "synonym_filter"]
+					},
+					"lowercase_keyword": {
+						"type": "custom",
+						"tokenizer": "keyword",
+						"filter": ["lowercase", "synonym_filter"]
+					}
+				}
+			}
+		}
+	},
+
+	"mappings": {
+		"runbook": {
+			"properties": {
+				"suggest": {
+					"type": "completion",
+					"analyzer": "simple"
+				},
+				"createdBy": {
+					"type": "text",
+					"store": "yes",
+					"analyzer": "lowercase_keyword"
+				},
+				"createdDate": {
+					"type": "date",
+					"store": "yes",
+					"format": "date_time"
+				},
+				"description": {
+					"type": "text",
+					"store": "yes",
+					"analyzer" :"custom_analyzer"
+				},
+				"id": {
+					"type": "text",
+					"store": "yes",
+
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"analyzer": "lowercase_keyword"
+						}
+					}
+				},
+				"modifiedBy": {
+					"type": "text",
+					"store": "yes"
+				},
+				"modifiedDate": {
+					"type": "date",
+					"store": "yes",
+					"format": "date_time"
+				},
+				"name": {
+					"type": "text",
+					"store": "yes",
+					"analyzer" : "custom_analyzer",
+					
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"analyzer": "lowercase_keyword"
+						}
+					}
+				},
+				"prerequisites": {
+					"type": "text",
+					"store": "yes"
+				},
+				"status": {
+					"type": "text",
+					"store": "yes",
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"analyzer": "lowercase_keyword"
+
+						}
+					}
+				},
+				"product": {
+					
+					"type": "text",
+					"store": "yes",
+					"copy_to": "suggest",
+					"analyzer" : "custom_analyzer",
+				
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"fielddata": true,
+							"analyzer": "lowercase_keyword"
+
+						}
+					}
+				},
+				"tools": {
+					
+					"type": "text",
+					"store": "yes",
+					"copy_to": "suggest",
+					"analyzer" : "custom_analyzer",
+
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"fielddata": true,
+							"analyzer": "lowercase_keyword"
+
+						}
+					}
+				},
+				"action": {
+					"type": "text",
+					"store": "yes",
+					"copy_to": "suggest",
+					"analyzer" : "custom_analyzer",
+
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"fielddata": true,
+							"analyzer": "lowercase_keyword"
+
+						}
+					}
+				},
+				"tags": {
+					
+					"type": "text",
+					"store": "yes",
+					"copy_to": "suggest",
+					"analyzer" : "custom_analyzer",
+
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"fielddata": true,
+							"analyzer": "lowercase_keyword"
+						}
+					}
+				},
+				"type": {
+					"type": "text",
+					"store": "yes",
+					"fields": {
+						"tokens": {
+							"type": "text"
+						},
+						"keyword": {
+							"type": "text",
+							"fielddata": true,
+							"analyzer": "lowercase_keyword"
+						}
+					}
+				},
+				"version": {
+					"type": "double",
+					"store": "yes"
+				},
+				"steps": {
+					"properties": {
+						"id": {
+							"type": "text",
+							"store": "yes"
+						},
+						"name": {
+							"type": "text",
+							"store": "yes"
+						},
+						"commands": {
+							"type": "text",
+							"store": "yes"
+						},
+						"tasks": {
+							"type": "text",
+							"store": "yes"
+						},
+						"type": {
+							"type": "text",
+							"store": "yes"
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,98 @@
+{
+	"settings": {
+		"index": {
+			"mapping.total_fields.limit": 5000,
+			"number_of_shards": 3,
+			"number_of_replicas": 1,
+			"analysis": {
+				"filter": {
+					"autocomplete_filter": {
+						"type": "edge_ngram",
+						"min_gram": 1,
+						"max_gram": 20
+					}
+				},
+				"analyzer": {
+					"autocomplete": {
+						"type": "custom",
+						"tokenizer": "standard",
+						"filter": [
+							"lowercase",
+							"autocomplete_filter"
+						]
+					}
+				}
+			}
+		}
+	},
+
+	"mappings": {
+		"runlog": {
+			"properties": {
+				"suggest": {
+					"type": "completion",
+					"analyzer": "simple"
+				},
+				"runlogId": {
+					"type": "text",
+					"store": "yes"
+				},
+				"id": {
+					"type": "text",
+					"store": "yes"
+				},
+				"name": {
+					"type": "text",
+					"store": "yes"
+				},
+				"status": {
+					"type": "text",
+					"store": "yes"
+				},
+				"originator": {
+					"type": "text",
+					"store": "yes"
+				},
+				"recipient": {
+					"type": "text",
+					"store": "yes"
+				},
+				"logTime": {
+					"type": "date",
+					"store": "yes",
+					"format" :"date_time"
+				},
+				"level": {
+					"type": "string",
+					"store": "yes",
+					"analyzer": "keyword"
+				},
+				"message": {
+					"type": "text",
+					"store": "yes"
+				},
+				"issue": {
+					"type": "text",
+					"store": "yes"
+				},
+				"resolution": {
+					"type": "nested"
+				},
+				"resolutionCount" : {
+					"type":"integer",
+					"store":"yes"
+				},
+				"reminder": {
+					"type": "text",
+					"store": "yes"
+				},
+				"user": {
+					"type": "text",
+					"store": "yes"
+				}
+				
+				
+			}
+		}
+	}
+}

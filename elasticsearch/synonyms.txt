@@ -1,0 +1,26 @@
+# blank lines and lines starting with pound are comments.
+
+#synonyms for general action intents
+add,create, set up , do , generate, induce, invoke, make , produce, prompt, work, yield,set up and create => create
+update intent,check,edit, alter , modify, change,update,insert,rectify => edit
+walkthrough,launch,get,get started,make a start,start to work ,get going,get rolling, get cracking, get moving , begin , commence , start ,start working ,overview => getting started
+troubleshooting ,guide,guidance,train,training,tutorial,operative,operations,study => tutorial
+view,enabling,facilitate,implement,set up,let,prepare,getting ready => enable
+subscribe, tag => subscribe
+delete,clean up,schedule deletion, unsubscribe,receive and delete => delete
+sign in,register,sign up => register
+publish, deploy,distribute => publish
+
+
+#product synonyms for application
+amazon elastic compute cloud,amazon elastic compute,elastic compute cloud,amazon ec2,ec2 => ec2
+amazon webservices lambda,aws lambda,amazon lambda,lambda => lambda
+amazon webservices cloudwatch,amazon cloudwatch,aws cloudwatch,cloudwatch => cloudwatch
+amazon webservices simple queue service,amazon webservices sqs,amazon simple queue service,amazon sqs,sqs => sqs
+aws key management service,amazon key management service,aws keymanagement service,amazon keymanagement service,amazon kms,aws kms,kms => kms 
+amazon webservices simple storage service,amazon webservices s3,amazon simple storage service,amazon s3,aws s3,s3 => s3
+amazon webservices simple notification service,amazon webservices sns,amazon simple notification service,aws sns,amazon sns => sns
+command line interface,cli => cli
+aws identity and access management,aws iam,iam => iam
+amazon route 53,amazon route53,aws route 53,aws route53,route 53,route53 => route 53
+amazon webservices lex,amazon lex,aws lex,lex => lex
