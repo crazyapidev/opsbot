@@ -1,0 +1,734 @@
+{
+	"name": "GERTZ",
+	"description": null,
+	"intents": [{
+		"intentName": "HelpMeTwo",
+		"intentVersion": "6"
+	}, {
+		"intentName": "MyRunbooks",
+		"intentVersion": "9"
+	}, {
+		"intentName": "AssignRunbookToUser",
+		"intentVersion": "9"
+	}, {
+		"intentName": "GetRunbookDetails",
+		"intentVersion": "4"
+	}, {
+		"intentName": "SelectRunbook",
+		"intentVersion": "25"
+	}, {
+		"intentName": "ResolveIssue",
+		"intentVersion": "3"
+	}, {
+		"intentName": "ExecuteRunbook",
+		"intentVersion": "15"
+	}, {
+		"intentName": "DelegateRunlog",
+		"intentVersion": "5"
+	}, {
+		"intentName": "AssignRunbookToSelf",
+		"intentVersion": "19"
+	}, {
+		"intentName": "RaiseIssue",
+		"intentVersion": "5"
+	}],
+	"clarificationPrompt": {
+		"messages": [{
+			"contentType": "PlainText",
+			"content": "Sorry, can you please repeat that?"
+		}],
+		"maxAttempts": 5,
+		"responseCard": null
+	},
+	"abortStatement": {
+		"messages": [{
+			"contentType": "PlainText",
+			"content": "Sorry, I could not understand. Goodbye."
+		}],
+		"responseCard": null
+	},
+	"status": "READY",
+	"failureReason": null,
+	"lastUpdatedDate": "2017-07-18T16:58:33.745Z",
+	"createdDate": "2017-07-09T17:41:34.888Z",
+	"idleSessionTTLInSeconds": 300,
+	"voiceId": "Joey",
+	"checksum": "e767352f-1da4-4a25-a547-2662cc27c5ba",
+	"version": "$LATEST",
+	"locale": "en-US",
+	"childDirected": false,
+	"dependencies": {
+		"intents": [{
+			"name": "AssignRunbookToSelf",
+			"description": null,
+			"slots": [{
+				"name": "RunbookId",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunbookIdentifier",
+				"slotTypeVersion": "2",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Which Runbook?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["add {RunbookId} to todo", "todo {RunbookId}", "to do {RunbookId}", "do {RunbookId}", "add {RunbookId}"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignSelfAssignSelfInit-6MF9GMS00TSX",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "CodeHook",
+				"codeHook": {
+					"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignSelfAssignSelfFulfill-SCRI79NF0VH3",
+					"messageVersion": "1.0"
+				}
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-17T19:43:17.072Z",
+			"createdDate": "2017-07-17T19:43:17.072Z",
+			"version": "19",
+			"checksum": "5c725748-bc5e-4e94-8ce8-d680d3de35d9"
+		}, {
+			"name": "AssignRunbookToUser",
+			"description": null,
+			"slots": [{
+				"name": "RunbookId",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunbookIdentifier",
+				"slotTypeVersion": "2",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Which runbook? please specify the runbook ID"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "SlackUser",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "SlackUser",
+				"slotTypeVersion": "2",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Whom do you want to assign this runbook to?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["assign {RunbookId}", "assign {RunbookId} to {SlackUser}", "assign {RunbookId} for {SlackUser}", "ask {SlackUser} to {RunbookId}", "ask {SlackUser} for {RunbookId}"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignAssignInit-1K8JN7ITKP499",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "CodeHook",
+				"codeHook": {
+					"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignAssignFulfill-6JWF83SCGGYA",
+					"messageVersion": "1.0"
+				}
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-17T18:56:03.858Z",
+			"createdDate": "2017-07-17T18:56:03.858Z",
+			"version": "9",
+			"checksum": "ea0274f2-4344-47aa-8d30-7c084c4379d8"
+		}, {
+			"name": "ResolveIssue",
+			"description": null,
+			"slots": [{
+				"name": "RunlogId",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "RunlogId",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Runlog?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "TimeToResolve",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "AMAZON.DURATION",
+				"slotTypeVersion": null,
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Time taken to resolve issue?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 3,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "ResolutionType",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "ResolutionType",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "ResolutionType?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["resolve", "resolve issue", "fix", "fix issue", "resolve {RunlogId}", "resolve issue {RunlogId}", "fix {RunlogId}", "fix issue {RunlogId}"],
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-18T13:15:52.570Z",
+			"createdDate": "2017-07-18T13:15:52.570Z",
+			"version": "3",
+			"checksum": "badd241c-5a64-463e-a5d6-b6b7b57d7ae3"
+		}, {
+			"name": "HelpMeTwo",
+			"description": null,
+			"slots": [],
+			"sampleUtterances": [],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-HelpHelpInit-52DAI9LYIGSC",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": "AMAZON.HelpIntent",
+			"lastUpdatedDate": "2017-07-16T05:43:45.822Z",
+			"createdDate": "2017-07-16T05:43:45.822Z",
+			"version": "6",
+			"checksum": "e56025c5-318a-4a19-8063-349107b1cb6c"
+		}, {
+			"name": "RaiseIssue",
+			"description": null,
+			"slots": [{
+				"name": "RunlogId",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunlogId",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please speficy the RunlogID?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Description",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "Text",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "More details?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 7,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "IssueType",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "IssueType",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please specify the issue type, valid values include Error, Bug, Defect, Failure.."
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Summary",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "Text",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "What is the issue?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 6,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Environment",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "Text",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Provide details of the environment, include connection, credential details.."
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 5,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Severity",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "Severity",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Severity?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 4,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["raise issue {RunlogId}", "raise-issue {RunlogId}", "issue {RunlogId}", "add issue {RunlogId}", "Error {RunlogId}", "Defect {RunlogId}", "Failure {RunlogId}", "add defect {RunlogId}", "found bug {RunlogId}", "found bug", "raise error", "failed", "got error", "add issue", "error", "failure", "bombed", "oh no"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-RaiseissueRaiseissueInit-1G614NUDKHWWQ",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-18T13:14:22.625Z",
+			"createdDate": "2017-07-18T13:14:22.625Z",
+			"version": "5",
+			"checksum": "f137abce-eaf4-4c8a-a996-1f2acc41cd06"
+		}, {
+			"name": "GetRunbookDetails",
+			"description": null,
+			"slots": [{
+				"name": "RunbookId",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunbookIdentifier",
+				"slotTypeVersion": "2",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "RunbookId?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["get", "view", "detail", "details"],
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-17T03:45:32.574Z",
+			"createdDate": "2017-07-17T03:45:32.574Z",
+			"version": "4",
+			"checksum": "b7ac8ecb-ed4f-41d5-8842-5bc76cbed609"
+		}, {
+			"name": "ExecuteRunbook",
+			"description": null,
+			"slots": [{
+				"name": "RunlogId",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunlogId",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "RunlogId? Something wrong if you're seeing this prompt"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "IsDone",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "IsDone",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Have you finished this task?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["execute {RunlogId}", "next {RunlogId}", "run {RunlogId}", "execute runlog {RunlogId}", "next runlog {RunlogId}", "run runlog {RunlogId}"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-ExecuteExecuteInit-1JL6QXRHSC58U",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-18T16:58:01.135Z",
+			"createdDate": "2017-07-18T16:58:01.135Z",
+			"version": "15",
+			"checksum": "d19c6823-b2bc-4862-86e9-86ee5bd58cc2"
+		}, {
+			"name": "DelegateRunlog",
+			"description": null,
+			"slots": [{
+				"name": "RunlogId",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunlogId",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Which runlog?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "SlackUser",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "SlackUser",
+				"slotTypeVersion": "2",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Which user?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["delegate {RunlogId}", "delegate {RunlogId} to {SlackUser}", "move {RunlogId} to {SlackUser}", "move {RunlogId} ", "reassign {RunlogId} ", "reassign {RunlogId} to {SlackUser}", "change {RunlogId} ", "change {RunlogId} to {SlackUser}", "let {SlackUser} do {RunlogId} "],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-DelegateDelegateInit-9EMEUGIOGUAJ",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-17T18:56:04.152Z",
+			"createdDate": "2017-07-17T18:56:04.152Z",
+			"version": "5",
+			"checksum": "652635ea-a313-4a38-a703-4aac45334f97"
+		}, {
+			"name": "MyRunbooks",
+			"description": null,
+			"slots": [],
+			"sampleUtterances": ["list my runbooks", "show my runbooks", "my list", "my runbooks", "show pending", "list mine", "show mine", "view mine", "list my pending", "view my pending", "list pending", "list completed", "my tasks", "pending tasks", "list all activities for me"],
+			"fulfillmentActivity": {
+				"type": "CodeHook",
+				"codeHook": {
+					"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-MyrunbooksMyrunbooksInit-494B68RY543C",
+					"messageVersion": "1.0"
+				}
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-17T19:43:17.021Z",
+			"createdDate": "2017-07-17T19:43:17.021Z",
+			"version": "9",
+			"checksum": "041b68f8-5ccc-427e-83b8-ee99cc82551b"
+		}, {
+			"name": "SelectRunbook",
+			"description": null,
+			"slots": [{
+				"name": "RunbookId",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunbookIdentifier",
+				"slotTypeVersion": "2",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "RunbookId?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 4,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "ActionType",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "ActionType",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Dynamically replace with existing action types"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 3,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "RunbookType",
+				"description": null,
+				"slotConstraint": "Optional",
+				"slotType": "RunbookType",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Tutorial or Troubleshooting?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Product",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Product",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Which Product / Platform / Tool do you need help with?"
+					}, {
+						"contentType": "PlainText",
+						"content": "Mention the product / platform youneed to work with?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Provision Elastic Compute instances\",\"title\":\"Amazon EC2\",\"buttons\":[]}]}"
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["search runbooks", "find runbooks", "find {Product}", "search {Product}", "search {Product} {RunbookType}", "find {Product} {RunbookType}", "find {RunbookType} on {Product}", "search", "find", "search guides", "search {RunbookType}", "find {RunbookType}"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-SearchSearchInit-UFEBB0S3OJFP",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-16T17:07:50.651Z",
+			"createdDate": "2017-07-16T17:07:50.651Z",
+			"version": "25",
+			"checksum": "92705e9d-c1c4-4530-af7b-e8f54830e524"
+		}],
+		"slotTypes": [{
+			"name": "RunlogId",
+			"description": null,
+			"enumerationValues": [{
+				"value": "RL121"
+			}],
+			"lastUpdatedDate": "2017-07-13T23:09:26.735Z",
+			"createdDate": "2017-07-13T23:09:26.735Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "IssueType",
+			"description": null,
+			"enumerationValues": [{
+				"value": "Task"
+			}, {
+				"value": "System Fault"
+			}, {
+				"value": "Bug"
+			}, {
+				"value": "IT Help"
+			}, {
+				"value": "Access"
+			}],
+			"lastUpdatedDate": "2017-07-14T00:51:04.096Z",
+			"createdDate": "2017-07-14T00:51:04.096Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "ActionType",
+			"description": "Action to be performed with product, typically provision, configure, update, delete, shutdown",
+			"enumerationValues": [{
+				"value": "provision"
+			}, {
+				"value": "update"
+			}, {
+				"value": "configure"
+			}, {
+				"value": "delete"
+			}, {
+				"value": "shutdown"
+			}],
+			"lastUpdatedDate": "2017-07-10T08:39:49.955Z",
+			"createdDate": "2017-07-10T08:39:49.955Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "Text",
+			"description": null,
+			"enumerationValues": [{
+				"value": "sample"
+			}],
+			"lastUpdatedDate": "2017-07-14T01:09:33.497Z",
+			"createdDate": "2017-07-14T01:09:33.497Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "Severity",
+			"description": null,
+			"enumerationValues": [{
+				"value": "High"
+			}, {
+				"value": "Low"
+			}, {
+				"value": "Medium"
+			}, {
+				"value": "Critical"
+			}, {
+				"value": "Showstopper"
+			}],
+			"lastUpdatedDate": "2017-07-14T00:54:47.416Z",
+			"createdDate": "2017-07-14T00:54:47.416Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "IsDone",
+			"description": null,
+			"enumerationValues": [{
+				"value": "No"
+			}, {
+				"value": "Not yet"
+			}],
+			"lastUpdatedDate": "2017-07-14T03:31:25.482Z",
+			"createdDate": "2017-07-14T03:31:25.482Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "RunbookIdentifier",
+			"description": "Selected Runbook",
+			"enumerationValues": [{
+				"value": "R2"
+			}, {
+				"value": "R1"
+			}],
+			"lastUpdatedDate": "2017-07-10T13:08:25.737Z",
+			"createdDate": "2017-07-10T13:08:25.737Z",
+			"version": "2",
+			"checksum": null
+		}, {
+			"name": "SlackUser",
+			"description": null,
+			"enumerationValues": [{
+				"value": "@user"
+			}, {
+				"value": "@ankit"
+			}],
+			"lastUpdatedDate": "2017-07-13T18:26:42.941Z",
+			"createdDate": "2017-07-13T18:26:42.941Z",
+			"version": "2",
+			"checksum": null
+		}, {
+			"name": "RunbookType",
+			"description": "Type of runbook - Tutorial, Troubleshooting, Getting Started",
+			"enumerationValues": [{
+				"value": "Tutorial"
+			}],
+			"lastUpdatedDate": "2017-07-10T08:47:44.049Z",
+			"createdDate": "2017-07-10T08:47:44.049Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "Product",
+			"description": "IT Product / Platform / Tool being used by your team",
+			"enumerationValues": [{
+				"value": "AWS CLI"
+			}],
+			"lastUpdatedDate": "2017-07-10T08:29:06.447Z",
+			"createdDate": "2017-07-10T08:29:06.447Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "ResolutionType",
+			"description": null,
+			"enumerationValues": [{
+				"value": "sample"
+			}],
+			"lastUpdatedDate": "2017-07-14T01:16:13.327Z",
+			"createdDate": "2017-07-14T01:16:13.327Z",
+			"version": "1",
+			"checksum": null
+		}]
+	}
+}

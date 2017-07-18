@@ -1,0 +1,35 @@
+{
+    "name": "GetRunbookDetails", 
+    "checksum": "b7ac8ecb-ed4f-41d5-8842-5bc76cbed609", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500262117.79, 
+    "createdDate": 1499675224.966, 
+    "sampleUtterances": [
+        "get", 
+        "view", 
+        "detail", 
+        "details"
+    ], 
+    "slots": [
+        {
+            "slotType": "RunbookIdentifier", 
+            "name": "RunbookId", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "RunbookId?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "2", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "ReturnIntent"
+    }
+}

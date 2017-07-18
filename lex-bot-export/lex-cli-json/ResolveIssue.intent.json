@@ -1,0 +1,72 @@
+{
+    "name": "ResolveIssue", 
+    "checksum": "badd241c-5a64-463e-a5d6-b6b7b57d7ae3", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500383743.73, 
+    "createdDate": 1499994772.872, 
+    "sampleUtterances": [
+        "resolve", 
+        "resolve issue", 
+        "fix", 
+        "fix issue", 
+        "resolve {RunlogId}", 
+        "resolve issue {RunlogId}", 
+        "fix {RunlogId}", 
+        "fix issue {RunlogId}"
+    ], 
+    "slots": [
+        {
+            "slotType": "RunlogId", 
+            "name": "RunlogId", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Runlog?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "AMAZON.DURATION", 
+            "name": "TimeToResolve", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Time taken to resolve issue?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 3, 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "ResolutionType", 
+            "name": "ResolutionType", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "ResolutionType?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 2, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "ReturnIntent"
+    }
+}

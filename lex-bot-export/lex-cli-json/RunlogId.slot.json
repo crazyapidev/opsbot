@@ -1,0 +1,81 @@
+{
+    "version": "$LATEST", 
+    "enumerationValues": [
+        {
+            "value": "RL827"
+        }, 
+        {
+            "value": "RL121"
+        }, 
+        {
+            "value": "RL84"
+        }, 
+        {
+            "value": "RL374"
+        }, 
+        {
+            "value": "RL111"
+        }, 
+        {
+            "value": "RL93"
+        }, 
+        {
+            "value": "RL153"
+        }, 
+        {
+            "value": "RL194"
+        }, 
+        {
+            "value": "RL1"
+        }, 
+        {
+            "value": "RL90"
+        }, 
+        {
+            "value": "RL3"
+        }, 
+        {
+            "value": "RL26"
+        }, 
+        {
+            "value": "RL37"
+        }, 
+        {
+            "value": "RL2"
+        }, 
+        {
+            "value": "RL4"
+        }, 
+        {
+            "value": "RL33"
+        }, 
+        {
+            "value": "RL477"
+        }, 
+        {
+            "value": "RL12"
+        }, 
+        {
+            "value": "RL56"
+        }, 
+        {
+            "value": "RL67"
+        }, 
+        {
+            "value": "RL23"
+        }, 
+        {
+            "value": "RL9"
+        }, 
+        {
+            "value": "RL8"
+        }, 
+        {
+            "value": "RL10"
+        }
+    ], 
+    "name": "RunlogId", 
+    "createdDate": 1499987361.686, 
+    "checksum": "5b239350-2f5d-45a5-b31a-20dcaaa35069", 
+    "lastUpdatedDate": 1500315176.527
+}

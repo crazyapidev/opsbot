@@ -1,0 +1,3 @@
+ElasticSearchHost: ec2-54-172-48-11.compute-1.amazonaws.com
+ElasticSearchPort: 9200
+SlackToken: xoxp-211753204212-211803581285-214269624194-9cf329ca2b79658def2cf8711d90b0d2

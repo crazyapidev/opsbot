@@ -1,0 +1,23 @@
+---
+project: gordon-lambdas
+default-region: us-east-1
+code-bucket: awsopsxbot
+pip-extra: --cache-dir=pip-cache
+apps:
+  - gordon.contrib.lambdas
+  - help
+  - search
+  - assign
+  - assign-self
+  - execute
+  - delegate
+  - myrunbooks
+  - raiseissue
+  - resolveissue
+  
+contexts: 
+    default: 
+        es_host: ref://ElasticSearchHost
+        es_port: ref://ElasticSearchPort
+        slack_token: ref://SlackToken
+            

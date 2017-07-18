@@ -1,0 +1,13 @@
+{
+    "enumerationValues": [
+        {
+            "value": "Tutorial"
+        }
+    ], 
+    "name": "RunbookType", 
+    "checksum": "29887814-f99e-4f80-8783-57f80c760f5b", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1499676457.749, 
+    "createdDate": 1499676457.749, 
+    "description": "Type of runbook - Tutorial, Troubleshooting, Getting Started"
+}

@@ -1,0 +1,58 @@
+{
+    "dialogCodeHook": {
+        "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-ExecuteExecuteInit-1JL6QXRHSC58U", 
+        "messageVersion": "1.0"
+    }, 
+    "name": "ExecuteRunbook", 
+    "checksum": "d19c6823-b2bc-4862-86e9-86ee5bd58cc2", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500329358.592, 
+    "createdDate": 1499151060.646, 
+    "sampleUtterances": [
+        "execute {RunlogId}", 
+        "next {RunlogId}", 
+        "run {RunlogId}", 
+        "execute runlog {RunlogId}", 
+        "next runlog {RunlogId}", 
+        "run runlog {RunlogId}"
+    ], 
+    "slots": [
+        {
+            "slotType": "RunlogId", 
+            "name": "RunlogId", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "RunlogId? Something wrong if you're seeing this prompt", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "IsDone", 
+            "name": "IsDone", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Have you finished this task?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 2, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "ReturnIntent"
+    }
+}

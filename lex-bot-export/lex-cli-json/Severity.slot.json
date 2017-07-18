@@ -1,0 +1,24 @@
+{
+    "version": "$LATEST", 
+    "enumerationValues": [
+        {
+            "value": "High"
+        }, 
+        {
+            "value": "Low"
+        }, 
+        {
+            "value": "Medium"
+        }, 
+        {
+            "value": "Critical"
+        }, 
+        {
+            "value": "Showstopper"
+        }
+    ], 
+    "name": "Severity", 
+    "createdDate": 1499993659.482, 
+    "checksum": "ef46a1b3-67f1-42b9-b43a-5472017361dd", 
+    "lastUpdatedDate": 1499993659.482
+}

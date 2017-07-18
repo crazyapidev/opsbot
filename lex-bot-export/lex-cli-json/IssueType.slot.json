@@ -1,0 +1,24 @@
+{
+    "version": "$LATEST", 
+    "enumerationValues": [
+        {
+            "value": "Task"
+        }, 
+        {
+            "value": "System Fault"
+        }, 
+        {
+            "value": "Bug"
+        }, 
+        {
+            "value": "IT Help"
+        }, 
+        {
+            "value": "Access"
+        }
+    ], 
+    "name": "IssueType", 
+    "createdDate": 1499993457.802, 
+    "checksum": "b09eee6e-101d-4d40-830b-04ba882a5849", 
+    "lastUpdatedDate": 1499993457.802
+}

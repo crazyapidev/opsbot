@@ -1,0 +1,187 @@
+{
+    "enumerationValues": [
+        {
+            "value": "CLI"
+        }, 
+        {
+            "value": "Amazon EC2"
+        }, 
+        {
+            "value": "Amazon Webservices Lambda"
+        }, 
+        {
+            "value": "AWS Route 53"
+        }, 
+        {
+            "value": "Cloudwatch"
+        }, 
+        {
+            "value": "Amazon Identity and Access Mgmt"
+        }, 
+        {
+            "value": "AWS Simple Queue Services"
+        }, 
+        {
+            "value": "Command Line Interface"
+        }, 
+        {
+            "value": "Amazon Command Line Interface"
+        }, 
+        {
+            "value": "AWS Simple Queue Service"
+        }, 
+        {
+            "value": "AWSSimple Storage"
+        }, 
+        {
+            "value": "Amazon Route 53"
+        }, 
+        {
+            "value": "Amazon Key Management Service"
+        }, 
+        {
+            "value": "Amazon Route53"
+        }, 
+        {
+            "value": "AWS EC2"
+        }, 
+        {
+            "value": "Amazon Elastic Compute cloud"
+        }, 
+        {
+            "value": "Amazon Lambda"
+        }, 
+        {
+            "value": "AWS Key Mgmt Service"
+        }, 
+        {
+            "value": "AWS Cloudwatch"
+        }, 
+        {
+            "value": "AWS Identity and Access Management"
+        }, 
+        {
+            "value": "AWS Simple Storage Service"
+        }, 
+        {
+            "value": "KMS"
+        }, 
+        {
+            "value": "SQS"
+        }, 
+        {
+            "value": "AWS CLI"
+        }, 
+        {
+            "value": "Amazon Identity and Access Management"
+        }, 
+        {
+            "value": "AWS Lex"
+        }, 
+        {
+            "value": "AWS S3"
+        }, 
+        {
+            "value": "Amazon Simple Queue Services"
+        }, 
+        {
+            "value": "AWS Identity and Access Mgmt"
+        }, 
+        {
+            "value": "AWS Command Line Interface"
+        }, 
+        {
+            "value": "Identity and Access Mgmt"
+        }, 
+        {
+            "value": "S3"
+        }, 
+        {
+            "value": "Amazon Webservice"
+        }, 
+        {
+            "value": "Amazon S3"
+        }, 
+        {
+            "value": "Amazon Elastic Compute"
+        }, 
+        {
+            "value": "Elastic Compute"
+        }, 
+        {
+            "value": "Route53"
+        }, 
+        {
+            "value": "Amazon Cloudwatch"
+        }, 
+        {
+            "value": "EC2"
+        }, 
+        {
+            "value": "Amazon Key Mgmt Service"
+        }, 
+        {
+            "value": "AWS Key Management Service"
+        }, 
+        {
+            "value": "Route 53"
+        }, 
+        {
+            "value": "Amazon Lex"
+        }, 
+        {
+            "value": "Lambda"
+        }, 
+        {
+            "value": "Amazon CLI"
+        }, 
+        {
+            "value": "AWS Lambda"
+        }, 
+        {
+            "value": "Amazon Webservices Cloudwatch"
+        }, 
+        {
+            "value": "Amazon SQS"
+        }, 
+        {
+            "value": "Amazon Simple Storage Service"
+        }, 
+        {
+            "value": "AWS KMS"
+        }, 
+        {
+            "value": "Identity and Access Management"
+        }, 
+        {
+            "value": "AWS Route53"
+        }, 
+        {
+            "value": "Amazon KMS"
+        }, 
+        {
+            "value": "Amazon Webservices Simple Queue Service"
+        }, 
+        {
+            "value": "AWS IAM"
+        }, 
+        {
+            "value": "Amazon Simple Queue Service"
+        }, 
+        {
+            "value": "AWS SQS"
+        }, 
+        {
+            "value": "Lex"
+        }, 
+        {
+            "value": "Amazon Simple Storage"
+        }
+    ], 
+    "name": "Product", 
+    "checksum": "3f2be838-c909-4ce6-8f65-6315e50e5dfb", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500356452.017, 
+    "createdDate": 1499675342.546, 
+    "description": "IT Product / Platform / Tool being used by your team"
+}

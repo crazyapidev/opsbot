@@ -1,0 +1,136 @@
+{
+    "enumerationValues": [
+        {
+            "value": "prepare"
+        }, 
+        {
+            "value": "resolve"
+        }, 
+        {
+            "value": "update"
+        }, 
+        {
+            "value": "insert"
+        }, 
+        {
+            "value": "invoke"
+        }, 
+        {
+            "value": "training"
+        }, 
+        {
+            "value": "delete"
+        }, 
+        {
+            "value": "deploy"
+        }, 
+        {
+            "value": "rectify"
+        }, 
+        {
+            "value": "view"
+        }, 
+        {
+            "value": "enable"
+        }, 
+        {
+            "value": "create"
+        }, 
+        {
+            "value": "implement"
+        }, 
+        {
+            "value": "tutorial"
+        }, 
+        {
+            "value": "distribute"
+        }, 
+        {
+            "value": "generate"
+        }, 
+        {
+            "value": "make"
+        }, 
+        {
+            "value": "guide"
+        }, 
+        {
+            "value": "alter"
+        }, 
+        {
+            "value": "train"
+        }, 
+        {
+            "value": "add"
+        }, 
+        {
+            "value": "troubleshoot"
+        }, 
+        {
+            "value": "overview"
+        }, 
+        {
+            "value": "edit"
+        }, 
+        {
+            "value": "learn"
+        }, 
+        {
+            "value": "poweroff"
+        }, 
+        {
+            "value": "change"
+        }, 
+        {
+            "value": "start"
+        }, 
+        {
+            "value": "launch"
+        }, 
+        {
+            "value": "configure"
+        }, 
+        {
+            "value": "check"
+        }, 
+        {
+            "value": "produce"
+        }, 
+        {
+            "value": "modify"
+        }, 
+        {
+            "value": "provision"
+        }, 
+        {
+            "value": "publish"
+        }, 
+        {
+            "value": "setup"
+        }, 
+        {
+            "value": "walkthrough"
+        }, 
+        {
+            "value": "troubleshooting"
+        }, 
+        {
+            "value": "terminate"
+        }, 
+        {
+            "value": "prompt"
+        }, 
+        {
+            "value": "begin"
+        }, 
+        {
+            "value": "shutdown"
+        }
+    ], 
+    "name": "ActionType", 
+    "checksum": "dadd4612-71a0-4c3c-a2cc-2221e12b0e78", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500355762.711, 
+    "createdDate": 1499675985.626, 
+    "description": "Action to be performed with product, typically provision, configure, update, delete, shutdown"
+}

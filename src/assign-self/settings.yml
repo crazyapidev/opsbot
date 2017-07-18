@@ -1,0 +1,29 @@
+lambdas:
+
+    assign-self-init:
+        code: assign-self-init
+        handler: code.lambda_handler
+        runtime: python
+        build:
+        - cp -Rf * {target}
+        - cp -Rf {project_path}\common\* {target}
+        - echo "[install]\nprefix=" > {target}/setup.cfg
+        - "{pip_path} install -r requirements.txt -q -t {target} {pip_install_extra}"
+        - cd {target} && find . -name "*.pyc" -delete
+        #description: search initialization, dialog and validation
+        #role:
+        #memory:
+
+    assign-self-fulfill:
+        code: assign-self-fulfill
+        handler: code.lambda_handler
+        runtime: python
+        build:
+        - cp -Rf * {target}
+        - cp -Rf {project_path}\common\* {target}
+        - echo "[install]\nprefix=" > {target}/setup.cfg
+        - "{pip_path} install -r requirements.txt -q -t {target} {pip_install_extra}"
+        - cd {target} && find . -name "*.pyc" -delete
+        #description: search initialization, dialog and validation
+        #role:
+        #memory:

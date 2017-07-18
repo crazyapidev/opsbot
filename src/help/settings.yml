@@ -1,0 +1,9 @@
+lambdas:
+  help-init:
+    code: help-init
+    handler: code.lambda_handler
+    runtime: python
+    context-destination: .context
+    description: handle help
+    #role:
+    #memory:

@@ -1,0 +1,15 @@
+{
+  "name": "lex-bot-export",
+  "version": "1.0.0",
+  "description": "This script can be used to export the definition for an Amazon Lex bot.  It relies on the AWS SDK and the [Amazon Lex Model Building Service API](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/LexModelBuildingService.html).",
+  "main": "exportlexbot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.85.0"
+  },
+  "devDependencies": {}
+}

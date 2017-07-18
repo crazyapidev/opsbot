@@ -1,0 +1,138 @@
+{
+    "dialogCodeHook": {
+        "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-RaiseissueRaiseissueInit-1G614NUDKHWWQ", 
+        "messageVersion": "1.0"
+    }, 
+    "name": "RaiseIssue", 
+    "checksum": "f137abce-eaf4-4c8a-a996-1f2acc41cd06", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500383631.793, 
+    "createdDate": 1499992470.207, 
+    "sampleUtterances": [
+        "raise issue {RunlogId}", 
+        "raise-issue {RunlogId}", 
+        "issue {RunlogId}", 
+        "add issue {RunlogId}", 
+        "Error {RunlogId}", 
+        "Defect {RunlogId}", 
+        "Failure {RunlogId}", 
+        "add defect {RunlogId}", 
+        "found bug {RunlogId}", 
+        "found bug", 
+        "raise error", 
+        "failed", 
+        "got error", 
+        "add issue", 
+        "error", 
+        "failure", 
+        "bombed", 
+        "oh no"
+    ], 
+    "slots": [
+        {
+            "slotType": "RunlogId", 
+            "name": "RunlogId", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Please speficy the RunlogID?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "Text", 
+            "name": "Description", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "More details?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 7, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "IssueType", 
+            "name": "IssueType", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Please specify the issue type, valid values include Error, Bug, Defect, Failure..", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 2, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "Text", 
+            "name": "Summary", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "What is the issue?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 6, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "Text", 
+            "name": "Environment", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Provide details of the environment, include connection, credential details..", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 5, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "Severity", 
+            "name": "Severity", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Severity?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 4, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "ReturnIntent"
+    }
+}

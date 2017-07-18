@@ -1,0 +1,61 @@
+{
+    "dialogCodeHook": {
+        "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignAssignInit-1K8JN7ITKP499", 
+        "messageVersion": "1.0"
+    }, 
+    "name": "AssignRunbookToUser", 
+    "checksum": "ea0274f2-4344-47aa-8d30-7c084c4379d8", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500315042.586, 
+    "createdDate": 1499970304.839, 
+    "sampleUtterances": [
+        "assign {RunbookId}", 
+        "assign {RunbookId} to {SlackUser}", 
+        "assign {RunbookId} for {SlackUser}", 
+        "ask {SlackUser} to {RunbookId}", 
+        "ask {SlackUser} for {RunbookId}"
+    ], 
+    "slots": [
+        {
+            "slotType": "RunbookIdentifier", 
+            "name": "RunbookId", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Which runbook? please specify the runbook ID", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "2", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "SlackUser", 
+            "name": "SlackUser", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Whom do you want to assign this runbook to?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 2, 
+            "slotTypeVersion": "2", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "CodeHook", 
+        "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignAssignFulfill-6JWF83SCGGYA", 
+            "messageVersion": "1.0"
+        }
+    }
+}

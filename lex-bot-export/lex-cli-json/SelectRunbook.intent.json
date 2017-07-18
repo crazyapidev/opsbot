@@ -1,0 +1,103 @@
+{
+    "dialogCodeHook": {
+        "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-SearchSearchInit-UFEBB0S3OJFP", 
+        "messageVersion": "1.0"
+    }, 
+    "name": "SelectRunbook", 
+    "checksum": "92705e9d-c1c4-4530-af7b-e8f54830e524", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500224863.026, 
+    "createdDate": 1499675275.787, 
+    "sampleUtterances": [
+        "search runbooks", 
+        "find runbooks", 
+        "find {Product}", 
+        "search {Product}", 
+        "search {Product} {RunbookType}", 
+        "find {Product} {RunbookType}", 
+        "find {RunbookType} on {Product}", 
+        "search", 
+        "find", 
+        "search guides", 
+        "search {RunbookType}", 
+        "find {RunbookType}"
+    ], 
+    "slots": [
+        {
+            "slotType": "RunbookIdentifier", 
+            "name": "RunbookId", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "RunbookId?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 4, 
+            "slotTypeVersion": "2", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "ActionType", 
+            "name": "ActionType", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Dynamically replace with existing action types", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 3, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "RunbookType", 
+            "name": "RunbookType", 
+            "slotConstraint": "Optional", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Tutorial or Troubleshooting?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 2, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "Product", 
+            "name": "Product", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Which Product / Platform / Tool do you need help with?", 
+                        "contentType": "PlainText"
+                    }, 
+                    {
+                        "content": "Mention the product / platform youneed to work with?", 
+                        "contentType": "PlainText"
+                    }
+                ], 
+                "responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Provision Elastic Compute instances\",\"title\":\"Amazon EC2\",\"buttons\":[]}]}"
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "ReturnIntent"
+    }
+}

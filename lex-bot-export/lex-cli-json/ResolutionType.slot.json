@@ -1,0 +1,12 @@
+{
+    "version": "$LATEST", 
+    "enumerationValues": [
+        {
+            "value": "sample"
+        }
+    ], 
+    "name": "ResolutionType", 
+    "createdDate": 1499994961.676, 
+    "checksum": "912b8cda-0593-4c02-bc34-1f7c0a1cfe8e", 
+    "lastUpdatedDate": 1499994961.676
+}

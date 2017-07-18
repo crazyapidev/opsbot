@@ -1,0 +1,58 @@
+{
+    "enumerationValues": [
+        {
+            "value": "R2"
+        }, 
+        {
+            "value": "R3"
+        }, 
+        {
+            "value": "R4"
+        }, 
+        {
+            "value": "R5"
+        }, 
+        {
+            "value": "R6"
+        }, 
+        {
+            "value": "R7"
+        }, 
+        {
+            "value": "R8"
+        }, 
+        {
+            "value": "R9"
+        }, 
+        {
+            "value": "R10"
+        }, 
+        {
+            "value": "R12"
+        }, 
+        {
+            "value": "R11"
+        }, 
+        {
+            "value": "R14"
+        }, 
+        {
+            "value": "R13"
+        }, 
+        {
+            "value": "R16"
+        }, 
+        {
+            "value": "R15"
+        }, 
+        {
+            "value": "R1"
+        }
+    ], 
+    "name": "RunbookIdentifier", 
+    "checksum": "8faabf8a-26d0-42de-911b-d2cf3760d896", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500314610.264, 
+    "createdDate": 1499676251.964, 
+    "description": "Selected Runbook"
+}

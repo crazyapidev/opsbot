@@ -1,0 +1,44 @@
+{
+    "dialogCodeHook": {
+        "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignSelfAssignSelfInit-6MF9GMS00TSX", 
+        "messageVersion": "1.0"
+    }, 
+    "name": "AssignRunbookToSelf", 
+    "checksum": "5c725748-bc5e-4e94-8ce8-d680d3de35d9", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500320507.042, 
+    "createdDate": 1500130332.327, 
+    "sampleUtterances": [
+        "add {RunbookId} to todo", 
+        "todo {RunbookId}", 
+        "to do {RunbookId}", 
+        "do {RunbookId}", 
+        "add {RunbookId}"
+    ], 
+    "slots": [
+        {
+            "slotType": "RunbookIdentifier", 
+            "name": "RunbookId", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Which Runbook?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "2", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "CodeHook", 
+        "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-AssignSelfAssignSelfFulfill-SCRI79NF0VH3", 
+            "messageVersion": "1.0"
+        }
+    }
+}

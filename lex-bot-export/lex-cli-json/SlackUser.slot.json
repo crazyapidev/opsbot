@@ -1,0 +1,57 @@
+{
+    "version": "$LATEST", 
+    "enumerationValues": [
+        {
+            "value": "@john.wayne"
+        }, 
+        {
+            "value": "@doe"
+        }, 
+        {
+            "value": "@john.zoe"
+        }, 
+        {
+            "value": "@mike.pep"
+        }, 
+        {
+            "value": "@gump"
+        }, 
+        {
+            "value": "@charlie18.t"
+        }, 
+        {
+            "value": "@hip.hop"
+        }, 
+        {
+            "value": "@john.wick"
+        }, 
+        {
+            "value": "@mke74"
+        }, 
+        {
+            "value": "@forrest"
+        }, 
+        {
+            "value": "@jane.doe"
+        }, 
+        {
+            "value": "@user"
+        }, 
+        {
+            "value": "@peter.pan"
+        }, 
+        {
+            "value": "@jane"
+        }, 
+        {
+            "value": "@john"
+        }, 
+        {
+            "value": "@tim1984"
+        }
+    ], 
+    "name": "SlackUser", 
+    "createdDate": 1499142072.249, 
+    "checksum": "34b618f2-c552-4da2-82b4-7be475561f85", 
+    "lastUpdatedDate": 1500315325.684
+}

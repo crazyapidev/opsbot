@@ -1,0 +1,61 @@
+{
+    "dialogCodeHook": {
+        "uri": "arn:aws:lambda:us-east-1:621886060510:function:dev-gordon-lambdas-r-DelegateDelegateInit-9EMEUGIOGUAJ", 
+        "messageVersion": "1.0"
+    }, 
+    "name": "DelegateRunlog", 
+    "checksum": "652635ea-a313-4a38-a703-4aac45334f97", 
+    "version": "$LATEST", 
+    "lastUpdatedDate": 1500315700.681, 
+    "createdDate": 1499987413.292, 
+    "sampleUtterances": [
+        "delegate {RunlogId}", 
+        "delegate {RunlogId} to {SlackUser}", 
+        "move {RunlogId} to {SlackUser}", 
+        "move {RunlogId} ", 
+        "reassign {RunlogId} ", 
+        "reassign {RunlogId} to {SlackUser}", 
+        "change {RunlogId} ", 
+        "change {RunlogId} to {SlackUser}", 
+        "let {SlackUser} do {RunlogId} "
+    ], 
+    "slots": [
+        {
+            "slotType": "RunlogId", 
+            "name": "RunlogId", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Which runlog?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 1, 
+            "slotTypeVersion": "1", 
+            "sampleUtterances": []
+        }, 
+        {
+            "slotType": "SlackUser", 
+            "name": "SlackUser", 
+            "slotConstraint": "Required", 
+            "valueElicitationPrompt": {
+                "maxAttempts": 2, 
+                "messages": [
+                    {
+                        "content": "Which user?", 
+                        "contentType": "PlainText"
+                    }
+                ]
+            }, 
+            "priority": 2, 
+            "slotTypeVersion": "2", 
+            "sampleUtterances": []
+        }
+    ], 
+    "fulfillmentActivity": {
+        "type": "ReturnIntent"
+    }
+}

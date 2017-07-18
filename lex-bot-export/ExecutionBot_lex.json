@@ -1,0 +1,991 @@
+{
+	"name": "ExecutionBot",
+	"description": null,
+	"intents": [{
+		"intentName": "AssignmentIntent",
+		"intentVersion": "15"
+	}, {
+		"intentName": "CustomSearch",
+		"intentVersion": "83"
+	}, {
+		"intentName": "SearchIntent",
+		"intentVersion": "59"
+	}, {
+		"intentName": "ResolveIssues",
+		"intentVersion": "3"
+	}],
+	"clarificationPrompt": {
+		"messages": [{
+			"contentType": "PlainText",
+			"content": "Sorry, can you please repeat that?"
+		}],
+		"maxAttempts": 5,
+		"responseCard": null
+	},
+	"abortStatement": {
+		"messages": [{
+			"contentType": "PlainText",
+			"content": "Sorry, I could not understand. Goodbye."
+		}],
+		"responseCard": null
+	},
+	"status": "READY",
+	"failureReason": null,
+	"lastUpdatedDate": "2017-07-18T09:33:36.056Z",
+	"createdDate": "2017-07-09T15:21:54.278Z",
+	"idleSessionTTLInSeconds": 300,
+	"voiceId": "Joanna",
+	"checksum": "22fd6b6e-040f-4211-98c5-42f5ae5cb85d",
+	"version": "$LATEST",
+	"locale": "en-US",
+	"childDirected": false,
+	"dependencies": {
+		"intents": [{
+			"name": "ResolveIssues",
+			"description": null,
+			"slots": [{
+				"name": "SaveResolution",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "SaveResolution",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "What is the resolution?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Resolution",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Resolution",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please provide resolution information"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["List issues assigned to me", "assigned issues to me", "show me the list of issues", "Assigned issues"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:ResolveAssignedIssue",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-17T10:48:01.358Z",
+			"createdDate": "2017-07-17T10:48:01.358Z",
+			"version": "3",
+			"checksum": "641937cc-a7d3-4c74-95a5-c75d31961cfb"
+		}, {
+			"name": "AssignmentIntent",
+			"description": null,
+			"slots": [{
+				"name": "StepsToExecute",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "StepsToExecute",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Steps to execute"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 6,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "StartsExecution",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "StartsExecution",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please click on the runbooks which you want to execute"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 5,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "AssignedTasks",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "AssignedTasks",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Which list you want to see?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 4,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["List all the tasks assigned to me", "List all the assignments", "Resume Execution", "I want to complete my assignments"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:AssignRunbooks_Function",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-16T11:13:13.033Z",
+			"createdDate": "2017-07-16T11:13:13.033Z",
+			"version": "15",
+			"checksum": "aa7147de-7d3f-471b-9b0d-15b4f2b21024"
+		}, {
+			"name": "CustomSearch",
+			"description": null,
+			"slots": [{
+				"name": "Path_Folder",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "NotablePaths",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please provide notable paths/folders "
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 12,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "AssignedConfirmation",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Acknowledgement",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Issue logged and assigned to {TeamMemberName}. Please resume execution after resolving."
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 14,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "UserQuery",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Issues",
+				"slotTypeVersion": "3",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please provide error code/description?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 9,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "TeamMemberName",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "TeamMemberNames",
+				"slotTypeVersion": "3",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Whom should i assign?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 13,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Instance_Service_Info",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Instances_Services_Info",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Provide additional details to log and assign. Enter instance/service information"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 10,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Tool",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Tools",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please provide tools to connect to instance"
+					}],
+					"maxAttempts": 2,
+					"responseCard": null
+				},
+				"priority": 11,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["I need Help", "Can I get some help", "Help me with the error", "Can you provide help", "troubleshoot error", "Help me understand", "Am stuck. Need help", "Encountered an error. Need help", "How to proceed further please help", "Please help", "Need guidance", "Provide a solution", "Need resolution", "Provide solution", "Help me resolve", "Can you solve this error", "Steps to resolve", "Help me crack the error", "What to do to proceed", "How to fix the error", "Need a fix", "How to get away from this", "How to solve", "Error solving", "Solve the error", "Resume from error", "Have an issue. Pls solve", "Resolution steps", "How to navigate from error", "Raise an error"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:Help",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "ReturnIntent"
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-14T09:27:12.948Z",
+			"createdDate": "2017-07-14T09:27:12.948Z",
+			"version": "83",
+			"checksum": "7dad5c03-f23a-492b-b8d9-099e1a79201a"
+		}, {
+			"name": "SearchIntent",
+			"description": null,
+			"slots": [{
+				"name": "ToolSelection",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "ToolSelection",
+				"slotTypeVersion": "5",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "The following are available runbooks for your query regarding {AvailableProducts} and type {AvailableTypes} : [searchresults] Please specify tool name for your runbook?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Select one\",\"title\":\"Runbook Tools\",\"buttons\":[{\"text\":\"AWS Management Console\",\"value\":\"AWS Management Console\"},{\"text\":\"Amazon EC2 console\",\"value\":\"Amazon EC2 console\"},{\"text\":\"AWS CLI\",\"value\":\"AWS CLI\"},{\"text\":\"Route 53 console\",\"value\":\"Route 53 console\"},{\"text\":\"Amazon Lex Console\",\"value\":\"Amazon Lex Console\"}]}]}"
+				},
+				"priority": 3,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "AvailableProducts",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "AvailableProducts",
+				"slotTypeVersion": "9",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please specify the product"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"\",\"subTitle\":\"\",\"title\":\"\",\"buttons\":[]}]}"
+				},
+				"priority": 1,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "AvailableTypes",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "AvailableTypes",
+				"slotTypeVersion": "3",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Please select the type of runbook you want"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"Select one\",\"title\":\"Types of Runbooks\",\"buttons\":[{\"text\":\"TUTORIAL\",\"value\":\"TUTORIAL\"},{\"text\":\"TROUBLESHOOT\",\"value\":\"TROUBLESHOOT\"},{\"text\":\"HOW TO RUNBOOK\",\"value\":\"HOW TO RUNBOOK\"}]}]}"
+				},
+				"priority": 2,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Actions",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Actions",
+				"slotTypeVersion": "10",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "What information do you want regarding your product {AvailableProducts}"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"\",\"subTitle\":\"\",\"title\":\"\",\"buttons\":[]}]}"
+				},
+				"priority": 4,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "TeamMemberNames",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "TeamMemberNames",
+				"slotTypeVersion": "3",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "To whom you would like to assign the runbook?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"\",\"subTitle\":\"\",\"title\":\"\",\"buttons\":[]}]}"
+				},
+				"priority": 8,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "RunbooksSelection",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "RunbooksSelection",
+				"slotTypeVersion": "10",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "The following are the filtered run books : [searchresults3] .Please specify runbook ID "
+					}],
+					"maxAttempts": 3,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"imageUrl\":\"\",\"subTitle\":\"\",\"title\":\"\",\"buttons\":[]}]}"
+				},
+				"priority": 5,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "Confirmations",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "Confirmations",
+				"slotTypeVersion": "1",
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "Should i assign runbook with ID {RunbooksSelection} to {TeamMemberNames} ? Please confirm"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\",\"genericAttachments\":[{\"subTitle\":\"select one\",\"title\":\"Confirmations\",\"buttons\":[{\"text\":\"yes\",\"value\":\"yes\"},{\"text\":\"no\",\"value\":\"no\"}]}]}"
+				},
+				"priority": 11,
+				"sampleUtterances": [],
+				"responseCard": null
+			}, {
+				"name": "PickDate",
+				"description": null,
+				"slotConstraint": "Required",
+				"slotType": "AMAZON.DATE",
+				"slotTypeVersion": null,
+				"valueElicitationPrompt": {
+					"messages": [{
+						"contentType": "PlainText",
+						"content": "When do you want to execute the steps?"
+					}],
+					"maxAttempts": 2,
+					"responseCard": "{\"version\":1,\"contentType\":\"application/vnd.amazonaws.card.generic\"}"
+				},
+				"priority": 10,
+				"sampleUtterances": [],
+				"responseCard": null
+			}],
+			"sampleUtterances": ["How can I manage my AWS products", "How can I get started with AWS {AvailableProducts}", "How can I manage my AWS {AvailableProducts}", "I want some information about AWS {AvailableProducts}", "I need help with some AWS {AvailableProducts}", "Show me list of runbooks", "ops find", "search", "find", "ops search", "find runbooks", "search runbooks", "I need help with some AWS products"],
+			"dialogCodeHook": {
+				"uri": "arn:aws:lambda:us-east-1:621886060510:function:runbookBot",
+				"messageVersion": "1.0"
+			},
+			"fulfillmentActivity": {
+				"type": "CodeHook",
+				"codeHook": {
+					"uri": "arn:aws:lambda:us-east-1:621886060510:function:runbookBot",
+					"messageVersion": "1.0"
+				}
+			},
+			"parentIntentSignature": null,
+			"lastUpdatedDate": "2017-07-18T07:32:56.003Z",
+			"createdDate": "2017-07-18T07:32:56.003Z",
+			"version": "59",
+			"checksum": "ab0412e3-aab9-42ea-8b7a-3025bdc28fca"
+		}],
+		"slotTypes": [{
+			"name": "SaveResolution",
+			"description": null,
+			"enumerationValues": [{
+				"value": "No"
+			}, {
+				"value": "Yes"
+			}],
+			"lastUpdatedDate": "2017-07-17T10:47:19.317Z",
+			"createdDate": "2017-07-17T10:47:19.317Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "StartsExecution",
+			"description": null,
+			"enumerationValues": [{
+				"value": "StartsExecution"
+			}],
+			"lastUpdatedDate": "2017-07-07T18:24:58.231Z",
+			"createdDate": "2017-07-07T18:24:58.231Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "RunbooksSelection",
+			"description": null,
+			"enumerationValues": [{
+				"value": "R61"
+			}, {
+				"value": "R60"
+			}, {
+				"value": "R63"
+			}, {
+				"value": "R62"
+			}, {
+				"value": "R21"
+			}, {
+				"value": "R65"
+			}, {
+				"value": "R20"
+			}, {
+				"value": "R64"
+			}, {
+				"value": "R23"
+			}, {
+				"value": "R67"
+			}, {
+				"value": "R22"
+			}, {
+				"value": "R66"
+			}, {
+				"value": "R25"
+			}, {
+				"value": "R69"
+			}, {
+				"value": "R24"
+			}, {
+				"value": "R68"
+			}, {
+				"value": "R27"
+			}, {
+				"value": "R26"
+			}, {
+				"value": "R29"
+			}, {
+				"value": "R28"
+			}, {
+				"value": "R1"
+			}, {
+				"value": "R2"
+			}, {
+				"value": "R3"
+			}, {
+				"value": "R4"
+			}, {
+				"value": "R5"
+			}, {
+				"value": "R6"
+			}, {
+				"value": "R7"
+			}, {
+				"value": "R8"
+			}, {
+				"value": "R9"
+			}, {
+				"value": "R70"
+			}, {
+				"value": "R72"
+			}, {
+				"value": "R71"
+			}, {
+				"value": "R30"
+			}, {
+				"value": "R74"
+			}, {
+				"value": "R73"
+			}, {
+				"value": "R32"
+			}, {
+				"value": "R76"
+			}, {
+				"value": "R31"
+			}, {
+				"value": "R75"
+			}, {
+				"value": "R34"
+			}, {
+				"value": "R78"
+			}, {
+				"value": "R33"
+			}, {
+				"value": "R77"
+			}, {
+				"value": "R36"
+			}, {
+				"value": "R35"
+			}, {
+				"value": "R79"
+			}, {
+				"value": "R38"
+			}, {
+				"value": "R37"
+			}, {
+				"value": "R39"
+			}, {
+				"value": "R81"
+			}, {
+				"value": "R80"
+			}, {
+				"value": "R83"
+			}, {
+				"value": "R82"
+			}, {
+				"value": "R41"
+			}, {
+				"value": "R85"
+			}, {
+				"value": "R40"
+			}, {
+				"value": "R84"
+			}, {
+				"value": "R43"
+			}, {
+				"value": "R87"
+			}, {
+				"value": "R42"
+			}, {
+				"value": "R86"
+			}, {
+				"value": "R45"
+			}, {
+				"value": "R89"
+			}, {
+				"value": "R44"
+			}, {
+				"value": "R88"
+			}, {
+				"value": "R47"
+			}, {
+				"value": "R46"
+			}, {
+				"value": "R49"
+			}, {
+				"value": "R48"
+			}, {
+				"value": "R90"
+			}, {
+				"value": "R92"
+			}, {
+				"value": "R91"
+			}, {
+				"value": "R50"
+			}, {
+				"value": "R93"
+			}, {
+				"value": "R52"
+			}, {
+				"value": "R51"
+			}, {
+				"value": "R10"
+			}, {
+				"value": "R54"
+			}, {
+				"value": "R53"
+			}, {
+				"value": "R12"
+			}, {
+				"value": "R56"
+			}, {
+				"value": "R11"
+			}, {
+				"value": "R55"
+			}, {
+				"value": "R14"
+			}, {
+				"value": "R58"
+			}, {
+				"value": "R13"
+			}, {
+				"value": "R57"
+			}, {
+				"value": "R16"
+			}, {
+				"value": "R15"
+			}, {
+				"value": "R59"
+			}, {
+				"value": "R18"
+			}, {
+				"value": "R17"
+			}, {
+				"value": "R19"
+			}],
+			"lastUpdatedDate": "2017-07-11T10:35:11.809Z",
+			"createdDate": "2017-07-11T10:35:11.809Z",
+			"version": "10",
+			"checksum": null
+		}, {
+			"name": "Issues",
+			"description": "Available issues",
+			"enumerationValues": [{
+				"value": "Host key not foundPermission denied publickey or Authentication failed permissiondenied"
+			}, {
+				"value": "Instance Recovery When a Host Computer Fails"
+			}, {
+				"value": "Server refused our keyor No supported authentication methods available"
+			}, {
+				"value": "Capture a Screenshot of an Unreachable             "
+			}, {
+				"value": "Error Using Mac OS X RDP Client"
+			}, {
+				"value": " User key not recognized byUser key not recognized byUser key not recognized byUser key not recognized by the server"
+			}],
+			"lastUpdatedDate": "2017-07-13T14:03:03.333Z",
+			"createdDate": "2017-07-13T14:03:03.333Z",
+			"version": "3",
+			"checksum": null
+		}, {
+			"name": "Resolution",
+			"description": "ResoltionToSolve",
+			"enumerationValues": [{
+				"value": "Provide correct login details"
+			}],
+			"lastUpdatedDate": "2017-07-17T08:39:05.860Z",
+			"createdDate": "2017-07-17T08:39:05.860Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "StepsToExecute",
+			"description": null,
+			"enumerationValues": [{
+				"value": "StepsToExecute"
+			}],
+			"lastUpdatedDate": "2017-07-07T18:29:13.357Z",
+			"createdDate": "2017-07-07T18:29:13.357Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "Instances_Services_Info",
+			"description": null,
+			"enumerationValues": [{
+				"value": "10.10.123.123"
+			}],
+			"lastUpdatedDate": "2017-07-13T11:48:19.259Z",
+			"createdDate": "2017-07-13T11:48:19.259Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "Actions",
+			"description": null,
+			"enumerationValues": [{
+				"value": "Delete"
+			}, {
+				"value": "Getting Started"
+			}, {
+				"value": "Getting-started"
+			}, {
+				"value": "Edit"
+			}, {
+				"value": "clean up"
+			}, {
+				"value": "Deploy"
+			}, {
+				"value": "invoke"
+			}, {
+				"value": "Troubleshooting"
+			}, {
+				"value": "delete"
+			}, {
+				"value": "Send"
+			}, {
+				"value": "deploy"
+			}, {
+				"value": "Invoke"
+			}, {
+				"value": "view"
+			}, {
+				"value": "Test"
+			}, {
+				"value": "Create"
+			}, {
+				"value": "enable"
+			}, {
+				"value": "set up"
+			}, {
+				"value": "create"
+			}, {
+				"value": "Enable"
+			}, {
+				"value": "tag"
+			}, {
+				"value": "connect"
+			}, {
+				"value": "Publish"
+			}, {
+				"value": "Route"
+			}, {
+				"value": "Set up"
+			}, {
+				"value": "Clean Up"
+			}, {
+				"value": "overview"
+			}, {
+				"value": "test"
+			}, {
+				"value": "edit"
+			}, {
+				"value": "Connect"
+			}, {
+				"value": "launch"
+			}, {
+				"value": "Overview"
+			}, {
+				"value": "View"
+			}, {
+				"value": "Launch"
+			}, {
+				"value": "Walkthrough"
+			}, {
+				"value": "getting-started"
+			}, {
+				"value": "route"
+			}, {
+				"value": "Register"
+			}, {
+				"value": "publish"
+			}, {
+				"value": "troubleshooting"
+			}, {
+				"value": "walkthrough"
+			}, {
+				"value": "Tag"
+			}, {
+				"value": "send"
+			}, {
+				"value": "getting started"
+			}, {
+				"value": "register"
+			}],
+			"lastUpdatedDate": "2017-07-11T10:53:15.913Z",
+			"createdDate": "2017-07-11T10:53:15.913Z",
+			"version": "10",
+			"checksum": null
+		}, {
+			"name": "Confirmations",
+			"description": null,
+			"enumerationValues": [{
+				"value": "no"
+			}, {
+				"value": "yes"
+			}],
+			"lastUpdatedDate": "2017-06-23T09:34:34.010Z",
+			"createdDate": "2017-06-23T09:34:34.010Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "AvailableProducts",
+			"description": null,
+			"enumerationValues": [{
+				"value": "AWS Lambda"
+			}, {
+				"value": "Amazon SQS"
+			}, {
+				"value": "Amazon EC2"
+			}, {
+				"value": "amazon ec2 windows instances"
+			}, {
+				"value": "Amazon Simple Storage Service"
+			}, {
+				"value": "Identity and Access Management"
+			}, {
+				"value": "Amazon Cloudwatch"
+			}, {
+				"value": "amazon ec2 linux instances"
+			}, {
+				"value": "amazon route 53"
+			}, {
+				"value": "Amazon Simple Notification Service"
+			}, {
+				"value": "amazon lex"
+			}, {
+				"value": "amazon simple notification service"
+			}, {
+				"value": "aws lambda"
+			}, {
+				"value": "identity and access management"
+			}, {
+				"value": "Amazon EC2 Windows Instances"
+			}, {
+				"value": "amazon sqs"
+			}, {
+				"value": "amazon ec2"
+			}, {
+				"value": "Amazon Route 53"
+			}, {
+				"value": "AWS Key Management Service"
+			}, {
+				"value": "aws key management service"
+			}, {
+				"value": "Amazon Lex"
+			}, {
+				"value": "amazon simple storage service"
+			}, {
+				"value": "amazon cloudwatch"
+			}, {
+				"value": "Amazon EC2 Linux Instances"
+			}],
+			"lastUpdatedDate": "2017-07-10T14:19:58.299Z",
+			"createdDate": "2017-07-10T14:19:58.299Z",
+			"version": "9",
+			"checksum": null
+		}, {
+			"name": "Acknowledgement",
+			"description": null,
+			"enumerationValues": [{
+				"value": "Acknowledgement"
+			}],
+			"lastUpdatedDate": "2017-06-27T09:16:57.710Z",
+			"createdDate": "2017-06-27T09:16:57.710Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "TeamMemberNames",
+			"description": null,
+			"enumerationValues": [{
+				"value": "praveen.koduganty"
+			}, {
+				"value": "zafarkhan"
+			}, {
+				"value": "pradeep"
+			}, {
+				"value": "hazarathreddy"
+			}, {
+				"value": "sivap"
+			}, {
+				"value": "ankit_gto-cds"
+			}, {
+				"value": "rajat"
+			}, {
+				"value": "sangeetha.p"
+			}, {
+				"value": "saimurali"
+			}, {
+				"value": "balasubramaniam"
+			}],
+			"lastUpdatedDate": "2017-07-11T10:35:11.705Z",
+			"createdDate": "2017-07-11T10:35:11.705Z",
+			"version": "3",
+			"checksum": null
+		}, {
+			"name": "NotablePaths",
+			"description": null,
+			"enumerationValues": [{
+				"value": "C drive"
+			}],
+			"lastUpdatedDate": "2017-07-13T11:51:28.562Z",
+			"createdDate": "2017-07-13T11:51:28.562Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "ToolSelection",
+			"description": null,
+			"enumerationValues": [{
+				"value": "aws management console"
+			}, {
+				"value": "AWS CLI"
+			}, {
+				"value": "aws management console, aws command line interface, aws tools for windows powershell, aws sdks, amazon sns query api"
+			}, {
+				"value": "amazon ec2 console"
+			}, {
+				"value": "AWS Management Console"
+			}, {
+				"value": "Amazon EC2 console"
+			}, {
+				"value": "AWS Management Console, AWS Command Line Interface, AWS Tools for Windows PowerShell, AWS SDKs, Amazon SNS Query API"
+			}, {
+				"value": "Route 53 console"
+			}, {
+				"value": "amazon lex console"
+			}, {
+				"value": "aws cli"
+			}, {
+				"value": "Amazon Lex Console"
+			}, {
+				"value": "route 53 console"
+			}],
+			"lastUpdatedDate": "2017-07-10T14:19:58.258Z",
+			"createdDate": "2017-07-10T14:19:58.258Z",
+			"version": "5",
+			"checksum": null
+		}, {
+			"name": "AvailableTypes",
+			"description": null,
+			"enumerationValues": [{
+				"value": "troubleshoot"
+			}, {
+				"value": "runbooks"
+			}, {
+				"value": "TUTORIAL"
+			}, {
+				"value": "HOW TO RUNBOOK"
+			}, {
+				"value": "tutorial"
+			}, {
+				"value": "TROUBLESHOOT"
+			}],
+			"lastUpdatedDate": "2017-07-17T16:02:36.804Z",
+			"createdDate": "2017-07-17T16:02:36.804Z",
+			"version": "3",
+			"checksum": null
+		}, {
+			"name": "AssignedTasks",
+			"description": null,
+			"enumerationValues": [{
+				"value": "Assignments"
+			}],
+			"lastUpdatedDate": "2017-07-07T16:52:13.195Z",
+			"createdDate": "2017-07-07T16:52:13.195Z",
+			"version": "1",
+			"checksum": null
+		}, {
+			"name": "Tools",
+			"description": null,
+			"enumerationValues": [{
+				"value": "AWS Console"
+			}],
+			"lastUpdatedDate": "2017-07-13T11:49:21.291Z",
+			"createdDate": "2017-07-13T11:49:21.291Z",
+			"version": "1",
+			"checksum": null
+		}]
+	}
+}
