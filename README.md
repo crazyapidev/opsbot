@@ -40,6 +40,7 @@ the most relevant runbooks. Some command examples include:
 How can I manage my AWS products
 I need help with some AWS ​products
 find runbooks
+list runbooks
 ```
 
 ### Assigning Runbooks
@@ -75,12 +76,6 @@ listed in the runlog and the runlog gets updated with this information.A command
 ```
 List issues assigned to me
 ```
-
-### Listing Runbooks
-Users can give commands such ``` list runbooks``` to display all the runlogs which contain runbooks assigned to them with the latest status in the runlogs.
-Users can select the ```execute``` option after selecting a particular runlog to start execution of the runbook step by step. The user will thus be directed to 
-the ```execute``` intent.
-
 
 # Installation Instructions
 
