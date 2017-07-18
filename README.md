@@ -38,7 +38,7 @@ as ```product name``` along with some optional parameters such as runbook type, 
 the most relevant runbooks. Some command examples include:
 ```
 How can I manage my AWS products
-I need help with some AWS ​products
+ops search
 find runbooks
 ```
 
@@ -54,6 +54,7 @@ The corresponding runlog gets updated with fields such as issue and status.A com
 ```
 List all the tasks assigned to me
 I want to complete my assignments
+list all assignments
 ```
 
 ### Raise Issue
@@ -65,8 +66,7 @@ updated in the runlog depending on whether the resolution came from the existing
 ```
 troubleshoot error
 I need Help
-Help me with the error
-Encountered an error. Need help
+help
 ```
 
 ### Resolve Issue
